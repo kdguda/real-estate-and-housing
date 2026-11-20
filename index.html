@@ -3,21 +3,81 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Real Estate & Housing</title>
+        <title>Student Dorms & Boarding Houses</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         
-        <header>
-            <h1>Real Estate & Housing</h1>
+        <header class="navbar">
+            <h1>PLACEHOLDER NAME</h1>
+            <nav>
+                <a href="#">List Your Property</a>
+                <a href="#">Favorites</a>
+                <a href="#">Login</a>
+            </nav>
         </header>
 
-        <main>
-        </main>
+        <section class="search-bar">
+            <form action="/search" method="get">
+                <input type="text" name="location" placeholder="Location (e.g. Batangas City)">
 
-        <footer>
-            <p>&copy; 2026 Real Estate & Housing. All rights reserved.</p>
-        </footer>
+                <select name="price">
+                    <option value="">Price Range</option>
+                    <option value="low">Under ₱3 000</option>
+                    <option value="medium">₱3 000 - ₱5 000</option>
+                    <option value="high">₱5 000+</option>
+                </select>
+
+                <select name="type">
+                    <option value="">Room Type</option>
+                    <option value="dorm">Dormitory</option>
+                    <option value="boarding">Boarding House</option>
+                    <option value="apartment">Apartment</option>
+                </select>
+
+                <select name="gender">
+                    <option value="">Gender</option>
+                    <option value="coed">Co-Ed</option>
+                    <option value="male">Male Only</option>
+                    <option value="female">Female Only</option>
+                </select>
+
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <main class="container">
+            <aside class="map-box">
+                <p>Map View Placeholder</p>
+            </aside>
+
+            <section class="Listings">
+                <article class="card">
+                    <h2>Dorm Photo Placeholder</h2>
+                    <p class="address">Address Placeholder</p>
+                    <p class="price">Price Placeholder</p>
+                    <p class="amenities">Amenities Placeholder</p>
+                    <a href="details.html" class="btn">View Details</a>
+                </article>
+
+                <article class="card">
+                    <h2>Boarding House Photo Placeholder</h2>
+                    <p class="address">Address Placeholder</p>
+                    <p class="price">Price Placeholder</p>
+                    <p class="amenities">Amenities Placeholder</p>
+                    <a href="details.html" class="btn">View Details</a>
+                </article>
+
+                <article class="card">
+                    <h2>Apartment Photo Placeholder</h2>
+                    <p class="address">Address Placeholder</p>
+                    <p class="price">Price Placeholder</p>
+                    <p class="amenities">Amenities Placeholder</p>
+                    <a href="details.html" class="btn">View Details</a>
+                </article>
+        
+            </section>
+        </main>
 
         <script src="script.js"></script>
     </body>
