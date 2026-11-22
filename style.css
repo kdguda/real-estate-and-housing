@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica,sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    line-height: 1.5;
+}
+
+.navbar {
+    background-color: #ffffff;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.navbar h1 {
+    font-size: 24px;
+    color: #1a2b49;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 25px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.navbar nav a:hover {
+    color: #3898a3;
+}
+
+.search-bar {
+    background-color: #1f3352;
+    padding: 20px 40px;
+}
+
+.search-bar form {
+    max-width: 1200ox;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+}
+
+.search-bar input,
+.search-bar select {
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    flex: 1;
+}
+
+.search-bar button:hover {
+    background-color: #3a8992;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.map-box {
+    width: 28-px;
+    height: 450px;
+    background-color: #dce6ec;
+    border: 1px solid #c5d3dc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #556b7d;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.listings {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    background-color: #ddd;
+}
+
+.card h2 {
+    font-size: 17px;
+    color: #1a2b49;
+    margin: 15px 15px 4px;
+}
+
+.card .address {
+    font-size: 12px;
+    color: #777;
+    margin: 0 15px 8px;
+}
+
+.card .price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+    margin: 0 15px 8px;
+}
+
+.card .amenities {
+    font-size: 12px;
+    color: #4aa3ad;
+    margin: 0 15px 15px;
+}
+
+.card .btn {
+    display: block;
+    text-align: center;
+    background-color: #4aa3ad;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: auto 15px 15px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card .btn:hover {
+    background-color: #3a8992;
+}
