@@ -5,10 +5,21 @@
 }
 
 body {
-    font-family: Arial, Helvetica,sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f6f8;
     color: #333;
     line-height: 1.5;
+}
+
+.navbar nav a,
+.search-bar input,
+.search-bar select,
+.search-bar button,
+.card,
+.card img,
+.card .btn,
+.close-btn {
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .navbar {
@@ -43,7 +54,7 @@ body {
 }
 
 .search-bar form {
-    max-width: 1200ox;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     gap: 10px;
@@ -52,14 +63,38 @@ body {
 .search-bar input,
 .search-bar select {
     padding: 12px;
-    border: none;
+    border: 2px solid transparent;
     border-radius: 4px;
     font-size: 14px;
     flex: 1;
 }
 
+.search-bar input:focus,
+.search-bar select:focus {
+    outline: none;
+    border-color: #4aa3ad;
+    box-shadow: 0 0 0 3px rgba(74, 163, 173, 0.25);
+}
+
+.search-bar button {
+    padding: 12px 24px;
+    background-color: #4aa3ad;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .search-bar button:hover {
-    background-color: #70c5cf;
+    background-color: #3a8992;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.search-bar button:active {
+    transform: translateY(0);
 }
 
 .container {
@@ -72,17 +107,16 @@ body {
 }
 
 .map-box {
-    width: 28-px;
+    width: 280px;
     height: 450px;
     background-color: #dce6ec;
     border: 1px solid #c5d3dc;
     border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #556b7d;
-    font-weight: bold;
     flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+    z-index: 1;
+    overflow: hidden;
 }
 
 .listings {
@@ -102,11 +136,20 @@ body {
     flex-direction: column;
 }
 
+.listings .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
 .card img {
     width: 100%;
     height: 160px;
     object-fit: cover;
     background-color: #ddd;
+}
+
+.listings .card:hover img {
+    transform: scale(1.03);
 }
 
 .card h2 {
@@ -149,4 +192,137 @@ body {
 
 .card .btn:hover {
     background-color: #3a8992;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.card .btn:active {
+    transform: translateY(0);
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card.fade-in {
+    animation: cardFadeIn 0.3s ease forwards;
+}
+
+.modal-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 25, 40, 0.55);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, backdrop-filter 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    transform: scale(0.92) translateY(15px);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #1a2b49;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn:hover {
+    background-color: #ffffff;
+    color: #d9534f;
+    transform: rotate(90deg);
+}
+
+#modal-card-container .card {
+    display: flex !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    border: none;
+}
+
+#modal-card-container .card img {
+    height: 280px;
+}
+
+#modal-card-container .card h2 {
+    font-size: 24px;
+    margin: 20px 24px 6px;
+}
+
+#modal-card-container .card .address,
+#modal-card-container .card .price,
+#modal-card-container .card .amenities {
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+#modal-card-container .card .price {
+    font-size: 20px;
+}
+
+.extra-details-box {
+    margin: 10px 24px 24px;
+    padding: 15px;
+    background-color: #f4f7f9;
+    border-left: 4px solid #4aa3ad;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.extra-details-box p {
+    margin-bottom: 6px;
+}
+
+.extra-details-box p:last-child {
+    margin-bottom: 0;
 }

@@ -3,13 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Student Dorms & Boarding Houses</title>
+        <title>BatFind - Student Dorms & Boarding Houses</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     </head>
     <body>
         
         <header class="navbar">
-            <h1>PLACEHOLDER NAME</h1>
+            <h1>BatFind</h1>
             <nav>
                 <a href="#">List Your Property</a>
                 <a href="#">Favorites</a>
@@ -18,24 +19,24 @@
         </header>
 
         <section class="search-bar">
-            <form action="/search" method="get">
-                <input type="text" name="location" placeholder="Location (e.g. Batangas City)">
+            <form id="search-form">
+                <input type="text" id="location-input" name="location" placeholder="Location (e.g. Batangas City, Lipa, Nasugbu)">
 
-                <select name="price">
+                <select id="price-select" name="price">
                     <option value="">Price Range</option>
                     <option value="low">Under ₱3 000</option>
                     <option value="medium">₱3 000 - ₱5 000</option>
                     <option value="high">₱5 000+</option>
                 </select>
 
-                <select name="type">
+                <select id="type-select" name="type">
                     <option value="">Room Type</option>
                     <option value="dorm">Dormitory</option>
                     <option value="boarding">Boarding House</option>
                     <option value="apartment">Apartment</option>
                 </select>
 
-                <select name="gender">
+                <select id="gender-select" name="gender">
                     <option value="">Gender</option>
                     <option value="coed">Co-Ed</option>
                     <option value="male">Male Only</option>
@@ -47,62 +48,74 @@
         </section>
 
         <main class="container">
-            <aside class="map-box">
-                <p>Map View Placeholder</p>
-            </aside>
+            <aside class="map-box" id="map"></aside>
 
             <section class="listings">
-                <article class="card">
-                    <h2>Dorm Photo Placeholder</h2>
-                    <p class="address">Address Placeholder</p>
-                    <p class="price">Price Placeholder</p>
-                    <p class="amenities">Amenities Placeholder</p>
-                    <a class="btn">View Details</a>
+                <article class="card" data-location=" Batangas City, Batangas, Bolbok, BSU, BSU Main, BSU Pablo Borbon" data-price="1900" data-type="dorm" data-gender="coed">
+                    <img src="https://media.istockphoto.com/id/492965853/photo/university-college-dorm-room-with-bunkbeds-empty-unoccupied-student-bedroom.jpg?s=612x612&w=0&k=20&c=se0Dsy9AwP240fgPs10Fz39uPZR8PgPYn8hiFwhZf58=" alt="The Slate Residence">
+                    <h2>The Slate Residence</h2>
+                    <p class="address">Brgy. Bolbok, Batangas City</p>
+                    <p class="price">₱1,900 / month</p>
+                    <p class="amenities">Co-Ed • Wi-Fi, Study Lounge, No Curfew</p>
+                    <a href="#" class="btn" data-details="The Slate Residence | Brgy. Bolbok, Batangas City (Near BSU PB) | Rate: ₱1,900/mo | Contact: 09XX-XXX-XXXX">View Details</a>
                 </article>
 
-                <article class="card">
-                    <h2>Boarding House Photo Placeholder</h2>
-                    <p class="address">Address Placeholder</p>
-                    <p class="price">Price Placeholder</p>
-                    <p class="amenities">Amenities Placeholder</p>
-                    <a class="btn">View Details</a>
+                <article class="card" data-location="Alangilan, Batangas City, Batangas, BSU, BSU Alangilan, Golden Country Homes, GCH" data-price="2400" data-type="boarding" data-gender="female">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/885323766.jpg?k=6170dc7e5a92bf72ed4e552f0e4537f3b2266d73d9e030b10179dcabb057ce49&o=" alt="The Alangilan Terrace">
+                    <h2>The Alangilan Terrace</h2>
+                    <p class="address">Brgy. Alangilan, Batangas City</p>
+                    <p class="price">₱2,400 / month</p>
+                    <p class="amenities">Female Only • Free Wi-Fi, Common Kitchen</p>
+                    <a href="#" class="btn" data-details="The Alangilan Terrace | Brgy. Alangilan, Batangas City | Rate: ₱2,400/mo | Contact: 09XX-XXX-XXXX">View Details</a>
                 </article>
 
-                <article class="card">
-                    <h2>Apartment Photo Placeholder</h2>
-                    <p class="address">Address Placeholder</p>
-                    <p class="price">Price Placeholder</p>
-                    <p class="amenities">Amenities Placeholder</p>
-                    <a class="btn">View Details</a>
+                <article class="card" data-location="kumintang ibaba, batangas city, batangas, ub, university of batangas" data-price="4350" data-type="apartment" data-gender="male">
+                    <img src="https://iglu.com.au/wp-content/uploads/2017/10/Kelvin-grove-share-apartment-810x1215-11.jpg" alt="Greenview">
+                    <h2>Greenview</h2>
+                    <p class="address">Kumintang Ibaba, Batangas City</p>
+                    <p class="price">₱4,350 / month</p>
+                    <p class="amenities">Male Only • Own CR, Free Wi-fi, Aircon, CCTV, No Curfew</p>
+                    <a href="#" class="btn" data-details="Greenview | Kumintang Ibaba, Batangas City (Near UB) | Rate: ₱4,350/mo | Contact: 09XX-XXX-XXXX">View Details</a>
                 </article>
 
-                <article class="card">
-                    <h2>Dorm Photo Placeholder</h2>
-                    <p class="address">Address Placeholder</p>
-                    <p class="price">Price Placeholder</p>
-                    <p class="amenities">Amenities Placeholder</p>
-                    <a class="btn">View Details</a>
+                <article class="card" data-location="bucana, nasugbu, batangas, bsu, bsu arasof" data-price="2500" data-type="dorm" data-gender="female">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf6oDcjXyCG9wBfYCKABF8slBBAZhH3WxCIKxqNQT_xo91U8lZ_UZln_Y&s=10" alt="Bayview Dormitories">
+                    <h2>Bayview Dormitories</h2>
+                    <p class="address">Brgy. Bucana, Nasugbu, Batangas</p>
+                    <p class="price">₱2,500 / month</p>
+                    <p class="amenities">Female Only • Aircon, Study Desk, Free Wi-fi</p>
+                    <a href="#" class="btn" data-details="Bayview Dormitories | Brgy. Bucana, Nasugbu (Near BSU ARASOF) | Rate: ₱2,500/mo | Contact: 09XX-XXX-XXXX">View Details</a>
                 </article>
 
-                <article class="card">
-                    <h2>Boarding House Photo Placeholder</h2>
-                    <p class="address">Address Placeholder</p>
-                    <p class="price">Price Placeholder</p>
-                    <p class="amenities">Amenities Placeholder</p>
-                    <a class="btn">View Details</a>
+                <article class="card" data-location="Balagtas, Batangas City, Batangas, BSU, BSU Alangilan" data-price="2800" data-type="boarding" data-gender="coed">
+                    <img src="https://prefabdavao.com/wp-content/uploads/2025/03/web2-1.webp" alt="Balagtas Cove">
+                    <h2>Balagtas Cove</h2>
+                    <p class="address">Batangas-Balete Road Brgy. Balagtas, Batangas City</p>
+                    <p class="price">₱2,800 / month</p>
+                    <p class="amenities">Co-Ed • Free Wi-Fi, No Curfew</p>
+                    <a href="#" class="btn" data-details="Balagtas Cove | Balagtas, Batangas City | Rate: ₱2,800/mo | Contact: 09XX-XXX-XXXX">View Details</a>
                 </article>
 
-                <article class="card">
-                    <h2>Apartment Photo Placeholder</h2>
-                    <p class="address">Address Placeholder</p>
-                    <p class="price">Price Placeholder</p>
-                    <p class="amenities">Amenities Placeholder</p>
-                    <a class="btn">View Details</a>
+                <article class="card" data-location="M.H. del Pilar Street, Santa Clara, Batangas City, Batangas, SBC, University of Batangas" data-price="5500" data-type="apartment" data-gender="coed">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/808309446.jpg?k=79ac81a07f3a911d100f1cd0e93c7bba7b348cff15015442c3a1b557d73059d5&o=" alt="Emerald Suite">
+                    <h2>Emerald Suite</h2>
+                    <p class="address">M.H. del Pilar Street, Brgy. Santa Clara, Batangas City</p>
+                    <p class="price">₱5,500 / month</p>
+                    <p class="amenities">Co-Ed • Private CR, Wi-Fi, Guarded and Gated Compound, CCTV </p>
+                    <a href="#" class="btn" data-details="Emerald Suite | M.H. del Pilar Street, Brgy. Santa Clara, Batangas City (Near SBC) | Rate: ₱5,500/mo | Contact: 09XX-XXX-XXXX">View Details</a>
                 </article>
         
             </section>
         </main>
 
+        <div id="details-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn" aria-label="Close">&times;</button>
+            <div id="modal-card-container"></div>
+        </div>
+    </div>
+
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
         <script src="script.js"></script>
     </body>
 </html>
