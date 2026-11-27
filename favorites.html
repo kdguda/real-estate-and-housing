@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Favorites - BatFind</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <h1>BatFind</h1>
+        <nav>
+            <span id="nav-user-greeting" class="user-greeting" style="display: none;"></span>
+            <a href="index.html">Browse</a>
+            <a href="favorites.html">Favorites <span id="fav-count">(0)</span></a>
+            <a href="login.html" id="nav-auth-link">Login</a>
+        </nav>
+    </header>
+
+    <main class="container" style="flex-direction: column;">
+        <div class="page-header">
+            <h2>Your Saved Dorms & Boarding Houses</h2>
+            <p>Listings you have bookmarked will stay saved here.</p>
+        </div>
+
+        <section class="listings" id="favorites-listings">
+            <!-- Saved cards will be injected here automatically by script.js -->
+        </section>
+    </main>
+
+    <!-- Lightbox Modal Overlay (Same as index.html so View Details works here too) -->
+    <div id="details-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn" aria-label="Close">&times;</button>
+            <div id="modal-card-container"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -12,9 +12,10 @@
         <header class="navbar">
             <h1>BatFind</h1>
             <nav>
-                <a href="#">List Your Property</a>
-                <a href="#">Favorites</a>
-                <a href="#">Login</a>
+                <span id="nav-user-greeting" class="user-greeting" style="display: none;"></span>
+                <a href="index.html">Browse</a>
+                <a href="favorites.html">Favorites <span id="fav-count">(0)</span></a>
+                <a href="login.html" id="nav-auth-link">Login</a>
             </nav>
         </header>
 
@@ -51,54 +52,72 @@
             <aside class="map-box" id="map"></aside>
 
             <section class="listings">
-                <article class="card" data-location=" Batangas City, Batangas, Bolbok, BSU, BSU Main, BSU Pablo Borbon" data-price="1900" data-type="dorm" data-gender="coed">
+                <article class="card" data-id="1" data-location=" Batangas City, Batangas, Bolbok, BSU, BSU Main, BSU Pablo Borbon" data-price="1900" data-type="dorm" data-gender="coed">
                     <img src="https://media.istockphoto.com/id/492965853/photo/university-college-dorm-room-with-bunkbeds-empty-unoccupied-student-bedroom.jpg?s=612x612&w=0&k=20&c=se0Dsy9AwP240fgPs10Fz39uPZR8PgPYn8hiFwhZf58=" alt="The Slate Residence">
-                    <h2>The Slate Residence</h2>
+                    <div class="card-header">
+                        <h2>The Slate Residence</h2>
+                        <button type="button" class="fav-btn" aria-label="Save to favorites" title="Save to favorites">&#9825;</button>
+                    </div>
                     <p class="address">Brgy. Bolbok, Batangas City</p>
                     <p class="price">₱1,900 / month</p>
                     <p class="amenities">Co-Ed • Wi-Fi, Study Lounge, No Curfew</p>
                     <a href="#" class="btn" data-details="The Slate Residence | Brgy. Bolbok, Batangas City (Near BSU PB) | Rate: ₱1,900/mo | Contact: 09XX-XXX-XXXX">View Details</a>
                 </article>
 
-                <article class="card" data-location="Alangilan, Batangas City, Batangas, BSU, BSU Alangilan, Golden Country Homes, GCH" data-price="2400" data-type="boarding" data-gender="female">
+                <article class="card" data-id="2" data-location="Alangilan, Batangas City, Batangas, BSU, BSU Alangilan, Golden Country Homes, GCH" data-price="2400" data-type="boarding" data-gender="female">
                     <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/885323766.jpg?k=6170dc7e5a92bf72ed4e552f0e4537f3b2266d73d9e030b10179dcabb057ce49&o=" alt="The Alangilan Terrace">
-                    <h2>The Alangilan Terrace</h2>
+                    <div class="card-header">
+                        <h2>The Alangilan Terrace</h2>
+                        <button type="button" class="fav-btn" aria-label="Save to favorites" title="Save to favorites">&#9825;</button>
+                    </div>
                     <p class="address">Brgy. Alangilan, Batangas City</p>
                     <p class="price">₱2,400 / month</p>
                     <p class="amenities">Female Only • Free Wi-Fi, Common Kitchen</p>
                     <a href="#" class="btn" data-details="The Alangilan Terrace | Brgy. Alangilan, Batangas City | Rate: ₱2,400/mo | Contact: 09XX-XXX-XXXX">View Details</a>
                 </article>
 
-                <article class="card" data-location="kumintang ibaba, batangas city, batangas, ub, university of batangas" data-price="4350" data-type="apartment" data-gender="male">
+                <article class="card" data-id="3" data-location="kumintang ibaba, batangas city, batangas, ub, university of batangas" data-price="4350" data-type="apartment" data-gender="male">
                     <img src="https://iglu.com.au/wp-content/uploads/2017/10/Kelvin-grove-share-apartment-810x1215-11.jpg" alt="Greenview">
-                    <h2>Greenview</h2>
+                    <div class="card-header">
+                        <h2>Greenview</h2>
+                        <button type="button" class="fav-btn" aria-label="Save to favorites" title="Save to favorites">&#9825;</button>
+                    </div>
                     <p class="address">Kumintang Ibaba, Batangas City</p>
                     <p class="price">₱4,350 / month</p>
                     <p class="amenities">Male Only • Own CR, Free Wi-fi, Aircon, CCTV, No Curfew</p>
                     <a href="#" class="btn" data-details="Greenview | Kumintang Ibaba, Batangas City (Near UB) | Rate: ₱4,350/mo | Contact: 09XX-XXX-XXXX">View Details</a>
                 </article>
 
-                <article class="card" data-location="bucana, nasugbu, batangas, bsu, bsu arasof" data-price="2500" data-type="dorm" data-gender="female">
+                <article class="card" data-id="4" data-location="bucana, nasugbu, batangas, bsu, bsu arasof" data-price="2500" data-type="dorm" data-gender="female">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf6oDcjXyCG9wBfYCKABF8slBBAZhH3WxCIKxqNQT_xo91U8lZ_UZln_Y&s=10" alt="Bayview Dormitories">
-                    <h2>Bayview Dormitories</h2>
+                    <div class="card-header">
+                        <h2>Bayview Dormitories</h2>
+                        <button type="button" class="fav-btn" aria-label="Save to favorites" title="Save to favorites">&#9825;</button>
+                    </div>
                     <p class="address">Brgy. Bucana, Nasugbu, Batangas</p>
                     <p class="price">₱2,500 / month</p>
                     <p class="amenities">Female Only • Aircon, Study Desk, Free Wi-fi</p>
                     <a href="#" class="btn" data-details="Bayview Dormitories | Brgy. Bucana, Nasugbu (Near BSU ARASOF) | Rate: ₱2,500/mo | Contact: 09XX-XXX-XXXX">View Details</a>
                 </article>
 
-                <article class="card" data-location="Balagtas, Batangas City, Batangas, BSU, BSU Alangilan" data-price="2800" data-type="boarding" data-gender="coed">
+                <article class="card" data-id="5" data-location="Balagtas, Batangas City, Batangas, BSU, BSU Alangilan" data-price="2800" data-type="boarding" data-gender="coed">
                     <img src="https://prefabdavao.com/wp-content/uploads/2025/03/web2-1.webp" alt="Balagtas Cove">
-                    <h2>Balagtas Cove</h2>
+                    <div class="card-header">
+                        <h2>Balagtas Cove</h2>
+                        <button type="button" class="fav-btn" aria-label="Save to favorites" title="Save to favorites">&#9825;</button>
+                    </div>
                     <p class="address">Batangas-Balete Road Brgy. Balagtas, Batangas City</p>
                     <p class="price">₱2,800 / month</p>
                     <p class="amenities">Co-Ed • Free Wi-Fi, No Curfew</p>
                     <a href="#" class="btn" data-details="Balagtas Cove | Balagtas, Batangas City | Rate: ₱2,800/mo | Contact: 09XX-XXX-XXXX">View Details</a>
                 </article>
 
-                <article class="card" data-location="M.H. del Pilar Street, Santa Clara, Batangas City, Batangas, SBC, University of Batangas" data-price="5500" data-type="apartment" data-gender="coed">
+                <article class="card" data-id="6" data-location="M.H. del Pilar Street, Santa Clara, Batangas City, Batangas, SBC, University of Batangas" data-price="5500" data-type="apartment" data-gender="coed">
                     <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/808309446.jpg?k=79ac81a07f3a911d100f1cd0e93c7bba7b348cff15015442c3a1b557d73059d5&o=" alt="Emerald Suite">
-                    <h2>Emerald Suite</h2>
+                    <div class="card-header">
+                        <h2>Emerald Suite</h2>
+                        <button type="button" class="fav-btn" aria-label="Save to favorites" title="Save to favorites">&#9825;</button>
+                    </div>
                     <p class="address">M.H. del Pilar Street, Brgy. Santa Clara, Batangas City</p>
                     <p class="price">₱5,500 / month</p>
                     <p class="amenities">Co-Ed • Private CR, Wi-Fi, Guarded and Gated Compound, CCTV </p>
