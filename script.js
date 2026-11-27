@@ -369,4 +369,26 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.reload();
         });
     }
+
+    // =========================================================
+    // 6. CONTACT FORM HANDLER (Runs on contact.html)
+    // =========================================================
+    const contactForm = document.getElementById("contact-form");
+    const contactStatus = document.getElementById("contact-status");
+
+    if (contactForm && contactStatus) {
+        // Pre-fill name/email if the user is already logged in
+        if (savedUser) {
+            document.getElementById("contact-name").value = savedUser.name;
+            document.getElementById("contact-email").value = savedUser.email;
+        }
+
+        contactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            contactStatus.style.color = "#2e7d32";
+            contactStatus.textContent = "Thank you! Your message has been received. We will get back to you soon.";
+            contactForm.reset();
+        });
+    }
+
 });

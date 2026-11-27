@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - BatFind</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <h1>BatFind</h1>
+        <nav>
+            <span id="nav-user-greeting" class="user-greeting" style="display: none;"></span>
+            <a href="index.html">Browse</a>
+            <a href="favorites.html">Favorites <span id="fav-count">(0)</span></a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" id="nav-auth-link">Login</a>
+        </nav>
+    </header>
+
+    <main class="info-container">
+        <section class="info-card">
+            <h2>Contact &amp; Property Inquiries</h2>
+            <p class="info-lead">
+                Have a question about a listing, or want to list your dormitory or boarding house on our directory? Send us a message below.
+            </p>
+
+            <form id="contact-form" class="auth-form" style="padding: 0; margin-top: 20px;">
+                <label for="contact-name">Your Name</label>
+                <input type="text" id="contact-name" placeholder="Juan Dela Cruz" required>
+
+                <label for="contact-email">Email Address</label>
+                <input type="email" id="contact-email" placeholder="juan@example.com" required>
+
+                <label for="contact-topic">Topic</label>
+                <select id="contact-topic" style="padding: 11px 12px; margin-bottom: 16px; border: 1px solid #ccd3da; border-radius: 4px; font-size: 14px;">
+                    <option value="student">Student / Tenant Question</option>
+                    <option value="landlord">List My Dorm / Boarding House</option>
+                    <option value="report">Report Outdated Listing Info</option>
+                </select>
+
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" rows="4" placeholder="Write your message or dorm details here..." required style="padding: 11px 12px; margin-bottom: 16px; border: 1px solid #ccd3da; border-radius: 4px; font-size: 14px; font-family: inherit;"></textarea>
+
+                <button type="submit" class="btn auth-submit">Send Message</button>
+            </form>
+
+            <p id="contact-status" class="auth-message" style="padding: 15px 0 0;"></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

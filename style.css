@@ -496,3 +496,69 @@ body {
     border-radius: 20px;
     border: 1px solid #cce3e6;
 }
+
+/* About & Contact Pages */
+.info-container {
+    max-width: 820px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.info-card {
+    background: #ffffff;
+    padding: 36px;
+    border-radius: 8px;
+    border: 1px solid #e1e4e8;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.info-card h2 {
+    color: #1a2b49;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.info-lead {
+    font-size: 16px;
+    color: #4aa3ad;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.info-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.info-box {
+    background: #f8fafb;
+    padding: 18px;
+    border-radius: 6px;
+    border: 1px solid #e1e8ec;
+}
+
+.info-box h3 {
+    color: #1a2b49;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+
+.auth-form input::placeholder,
+.auth-form textarea::placeholder {
+    color: #9aa5b1;
+    opacity: 1; 
+}
+
+.auth-form input,
+.auth-form select,
+.auth-form textarea {
+    color: #2c3e50;
+}
