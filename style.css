@@ -327,7 +327,6 @@ body {
     margin-bottom: 0;
 }
 
-/* Card Header with Title + Heart Button Side-by-Side */
 .card-header {
     display: flex;
     justify-content: space-between;
@@ -337,11 +336,10 @@ body {
 }
 
 .card-header h2 {
-    margin: 0; /* Overrides old .card h2 margin so flex alignment stays flush */
+    margin: 0; 
     flex: 1;
 }
 
-/* Favorite Heart Button */
 .fav-btn {
     background: none;
     border: none;
@@ -362,7 +360,6 @@ body {
     color: #e74c3c;
 }
 
-/* Page Header (Used on Favorites Page) */
 .page-header {
     width: 100%;
     margin-bottom: 10px;
@@ -378,7 +375,6 @@ body {
     font-size: 14px;
 }
 
-/* Login & Sign Up Page Layout */
 .auth-wrapper {
     display: flex;
     justify-content: center;
@@ -497,7 +493,6 @@ body {
     border: 1px solid #cce3e6;
 }
 
-/* About & Contact Pages */
 .info-container {
     max-width: 820px;
     margin: 40px auto;
