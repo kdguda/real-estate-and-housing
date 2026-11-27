@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // =========================================================
-    // 1. SEARCH & FILTER LOGIC (Runs on index.html)
-    // =========================================================
     const searchForm = document.getElementById("search-form");
     const locationInput = document.getElementById("location-input");
     const priceSelect = document.getElementById("price-select");
@@ -77,9 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // =========================================================
-    // 2. ENLARGED CARD DETAILS MODAL (Works on index & favorites)
-    // =========================================================
     const modal = document.getElementById("details-modal");
     const modalContainer = document.getElementById("modal-card-container");
     const closeModalBtn = document.getElementById("close-modal");
@@ -139,9 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // =========================================================
-    // 3. INTERACTIVE GENERAL MAP (Runs on index.html)
-    // =========================================================
     const mapElement = document.getElementById("map");
     if (mapElement && typeof L !== "undefined") {
         const map = L.map("map", {
@@ -156,9 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }).addTo(map);
     }
 
-    // =========================================================
-    // 4. FAVORITES SYSTEM (Syncs index.html <-> favorites.html)
-    // =========================================================
     function getFavorites() {
         return JSON.parse(localStorage.getItem("dormFavorites") || "[]");
     }
@@ -257,14 +245,10 @@ document.addEventListener("DOMContentLoaded", () => {
         renderFavoritesPage();
     }
 
-    // =========================================================
-    // 5. LOGIN / SIGN UP STATE (Validated Against Registered Users)
-    // =========================================================
     const navGreeting = document.getElementById("nav-user-greeting");
     const navAuthLink = document.getElementById("nav-auth-link");
     const savedUser = JSON.parse(localStorage.getItem("dormUser") || "null");
 
-    // 5a. Update Navbar Greeting & Login/Logout Link
     if (savedUser && navAuthLink) {
         if (navGreeting) {
             navGreeting.textContent = `Hi, ${savedUser.name.split(" ")[0]}`;
@@ -280,7 +264,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 5b. Login & Sign Up Tab Switching + Validation (on login.html)
     const authTabs = document.querySelectorAll(".auth-tab");
     const loginForm = document.getElementById("login-form");
     const registerForm = document.getElementById("register-form");
@@ -370,14 +353,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // =========================================================
-    // 6. CONTACT FORM HANDLER (Runs on contact.html)
-    // =========================================================
     const contactForm = document.getElementById("contact-form");
     const contactStatus = document.getElementById("contact-status");
 
     if (contactForm && contactStatus) {
-        // Pre-fill name/email if the user is already logged in
         if (savedUser) {
             document.getElementById("contact-name").value = savedUser.name;
             document.getElementById("contact-email").value = savedUser.email;
